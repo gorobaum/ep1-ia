@@ -19,5 +19,4 @@ fator( pos( F ) ) --> [pos(F)].
 teste1:-
     analisador_lexico( '= 1', Ys ),
     analisador_sintatico( Ys, F ),
-    writeq(F),
     nl.

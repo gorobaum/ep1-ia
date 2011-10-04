@@ -18,3 +18,6 @@ tratador_semantico( [Y | Ys], [O | Os] ) :-
     analisador_semantico( Y, O ),
     tratador_semantico( Ys, Os ).
  tratador_semantico( [], _).
+ 
+testefinal :-
+    interpretador( '= 1', [1] ).
