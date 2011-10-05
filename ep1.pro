@@ -24,6 +24,5 @@ tratador_semantico( [], [], _ ).
 tratador_semantico( [Y | Ys], [O | Os], R ) :-
     analisador_semantico( Y, O, R ),
     append(R,[O],Z),
-    writeq(Z),
     tratador_semantico( Ys, Os, Z ),
     !.
