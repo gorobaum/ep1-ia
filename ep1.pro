@@ -7,20 +7,20 @@ interpretador( I, O ) :-
     tratador_sintatico( X, Y ),
     tratador_semantico( Y, O, [] ).
 
-tratador_lexico( [], Xs ).
+tratador_lexico( [], [] ).
 tratador_lexico( [I | Is] , [X | Xs] ) :-
     analisador_lexico( I, X ),
     tratador_lexico( Is, Xs ).
 
-tratador_sintatico( [], Ys ).
+tratador_sintatico( [], [] ).
 tratador_sintatico( [X | Xs], [Y | Ys] ) :-
     analisador_sintatico( X, Y ),
     tratador_sintatico( Xs, Ys ).
 
-tratador_semantico( [], Os, R ).
+tratador_semantico( [], [], _ ).
 tratador_semantico( [Y | Ys], [O | Os], R ) :-
     analisador_semantico( Y, O, R ),
     tratador_semantico( Ys, Os, [ R | O ] ).
 
 testefinal :-
-    interpretador( ['= 1 + 2'], [3] ).
+    interpretador( ['= 1 + 2', '2'], [3,2] ).
