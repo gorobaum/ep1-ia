@@ -5,7 +5,7 @@
 analisador_semantico( Sintaticos, Valor, Resolvidos ) :-
     anasem( Valor, Sintaticos, Resolvidos ).
 
-anasem(Valor, Sintaticos, Resolvidos) :-
+anasem(Valor, Sintaticos, _) :-
   integer(Sintaticos),
   Valor is  Sintaticos.
 anasem(Valor, Sintaticos, Resolvidos) :-
