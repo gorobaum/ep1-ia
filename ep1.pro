@@ -10,9 +10,9 @@ interpretador( I, O ) :-
 
 tratador_lexico( [], [] ).
 tratador_lexico( [I | Is] , [X | Xs] ) :-
+    % writeq( I ),
     analisador_lexico( I, X ),
-    tratador_lexico( Is, Xs ),
-    !.
+    tratador_lexico( Is, Xs ).
 
 tratador_sintatico( [], [] ).
 tratador_sintatico( [X | Xs], [Y | Ys] ) :-
@@ -23,5 +23,7 @@ tratador_sintatico( [X | Xs], [Y | Ys] ) :-
 tratador_semantico( [], [], _ ).
 tratador_semantico( [Y | Ys], [O | Os], R ) :-
     analisador_semantico( Y, O, R ),
-    tratador_semantico( Ys, Os, [ R , O ] ),
+    append(R,[O],Z),
+    writeq(Z),
+    tratador_semantico( Ys, Os, Z ),
     !.

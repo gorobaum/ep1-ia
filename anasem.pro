@@ -6,7 +6,7 @@ anasem(Valor, Sintaticos, _) :-
   Valor is  Sintaticos.
 anasem(Valor, Sintaticos, Resolvidos) :-
   pos(X) = Sintaticos,
-  nth1(X, Resolvidos, Y),
+  nth1(X+1, Resolvidos, Y),
   Valor is Y.
 anasem(Valor, Sintaticos, Resolvidos) :-
   soma(X,Y) = Sintaticos,
@@ -27,4 +27,4 @@ anasem(Valor, Sintaticos, Resolvidos) :-
   div(X,Y) = Sintaticos,
   anasem(Xval,X, Resolvidos),
   anasem(Yval,Y, Resolvidos),
-  Valor is Xval / Yval.
+  Valor is Xval / Yval. 
