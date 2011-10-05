@@ -1,6 +1,7 @@
 ?- include('analex-ep1.pro').
 ?- include('anasint.pro').
 ?- include('anasem.pro').
+?- include('testes.pl').
 
 interpretador( I, O ) :-
     tratador_lexico( I, X ),
@@ -24,6 +25,3 @@ tratador_semantico( [Y | Ys], [O | Os], R ) :-
     analisador_semantico( Y, O, R ),
     tratador_semantico( Ys, Os, [ R , O ] ),
     !.
-
-testefinal :-
-    interpretador( ['= 1 + 2', '2', '$2'], [3,2,2] ).
