@@ -1,7 +1,7 @@
-?- include('analex-ep1.pro').
+?- include('analex.pro').
 ?- include('anasint.pro').
 ?- include('anasem.pro').
-?- include('testes.pl').
+?- include('testes.pro').
 
 interpretador( I, O ) :-
     tratador_lexico( I, X ),
