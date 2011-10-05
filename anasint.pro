@@ -4,7 +4,7 @@ analisador_sintatico( Lexicos, Sintaticos ) :-
 anasin( I ) --> [=], expressao(I).
 
 expressao( E ) --> parcela( E ).
-expressao( som( E1, E2 ) ) --> parcela(E1), [+], expressao(E2).
+expressao( soma( E1, E2 ) ) --> parcela(E1), [+], expressao(E2).
 expressao( sub( E1, E2 ) ) --> parcela(E1), [-], expressao(E2).
 expressao( E ) --> ['('], expressao( E ), [')'].
 
