@@ -15,7 +15,7 @@ tratador_sintatico( [], _ ).
 
 tratador_semantico( [Y | Ys], [O | Os], R ) :-
     % pos_terminator( Y, Y1 ),
-    analisador_semantico( Y, O ),
+    analisador_semantico( Y, O, R ),
     tratador_semantico( Ys, Os, [ R | O ] ).
  tratador_semantico( [], _).
  

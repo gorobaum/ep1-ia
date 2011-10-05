@@ -17,6 +17,6 @@ fator( F ) --> [int(F)].
 fator( pos( F ) ) --> [pos(F)].
 
 teste1:-
-    analisador_lexico( '= 1', Ys ),
+    analisador_lexico( '= 1 + 2', Ys ),
     analisador_sintatico( Ys, F ),
     nl.
