@@ -7,3 +7,8 @@ Professor Marcelo Finger
 
 Rafael Reggiani Manzo - 6797150
 Thiago de Gouveia Nunes - 6797289
+
+Os testes foram concluidos em 0.050s em media.
+Para rodar os testes, usamos o comando :
+    time swipl <testes.txt
+O arquivo testes.txt esta incluso no .tar.
