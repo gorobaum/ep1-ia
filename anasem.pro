@@ -2,17 +2,40 @@
 % termo( Y ) --> [pos(Y)],
 % termo( Y ) --> termo( Y ).
 
-analisador_semantico( Sintaticos, Semanticos ) :-
-    anasem( Semanticos, Sintaticos, [] ).
+analisador_semantico( Sintaticos, Valor, Resolvidos ) :-
+    anasem( Valor, Sintaticos, Resolvidos ).
 
-anasem( I ) --> calculo( I ).
+anasem(Valor, Sintaticos) :-
+  integer(Sintaticos),
+  Valor is  Sintaticos.
+anasem(Valor, Sintaticos, Resolvidos) :-
+  soma(X,Y) = Sintaticos,
+  anasem(Xval,X, Resolvidos),
+  anasem(Yval,Y, Resolvidos),
+  Valor is Xval + Yval.
+anasem(Valor, Sintaticos, Resolvidos) :-
+  sub(X,Y) = Sintaticos,
+  anasem(Xval,X, Resolvidos),
+  anasem(Yval,Y, Resolvidos),
+  Valor is Xval - Yval.
+anasem(Valor, Sintaticos, Resolvidos) :-
+  mult(X,Y) = Sintaticos,
+  anasem(Xval,X, Resolvidos),
+  anasem(Yval,Y, Resolvidos),
+  Valor is Xval * Yval.
+anasem(Valor, Sintaticos, Resolvidos) :-
+  div(X,Y) = Sintaticos,
+  anasem(Xval,X, Resolvidos),
+  anasem(Yval,Y, Resolvidos),
+  Valor is Xval / Yval.
+%anasem( I ) --> calculo( I ).
 
-calculo( I ) --> [soma( S1, S2 )], calculo( S1 ), calculo( S2 ), {I is S1 + S2}.
-calculo( I ) --> [sub( S1, S2 )], calculo( S1 ), calculo( S2 ), {I is S1 - S2}.
-calculo( I ) --> [mult( S1, S2 )], calculo( S1 ), calculo( S2 ), {I is S1 * S2}.
-calculo( I ) --> [div( S1, S2 )], calculo( S1 ), calculo( S2 ), {I is S1 / S2}.
+%calculo( I ) --> [soma( S1, S2 )], calculo( S1 ), calculo( S2 ), {I is S1 + S2}.
+%calculo( I ) --> [sub( S1, S2 )], calculo( S1 ), calculo( S2 ), {I is S1 - S2}.
+%calculo( I ) --> [mult( S1, S2 )], calculo( S1 ), calculo( S2 ), {I is S1 * S2}.
+%calculo( I ) --> [div( S1, S2 )], calculo( S1 ), calculo( S2 ), {I is S1 / S2}.
 % anasem( I ) --> [pos(F)],{ nth1(F, R, Z) }, {I is Z}.
-calculo( D ) --> [D], { integer(D) }.
+%calculo( D ) --> D], { integer(D) }.
 
 % num( D ) --> [D], { digito(D) }.
 
