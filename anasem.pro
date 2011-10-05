@@ -46,7 +46,6 @@ anasem(Valor, Sintaticos, Resolvidos) :-
 teste2:-
     analisador_lexico( '= 1 + 2', Y1 ),
     analisador_sintatico( Y1, Y2 ),
-    writeq(Y2),
-    analisador_semantico( Y2, F ),
+    analisador_semantico( Y2, F, [] ),
     writeq(F),
     nl.
