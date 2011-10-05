@@ -9,7 +9,7 @@ anasem( I, R ) --> [soma( S1, S2 )], anasem( S1 ), anasem( S2 ), {I is S1 + S2}.
 anasem( I, R ) --> [sub( S1, S2 )], anasem( S1 ), anasem( S2 ), {I is S1 - S2}.
 anasem( I, R ) --> [mult( S1, S2 )], anasem( S1 ), anasem( S2 ), {I is S1 * S2}.
 anasem( I, R ) --> [div( S1, S2 )], anasem( S1 ), anasem( S2 ), {I is S1 / S2}.
-anasem( I, R ) --> [pos(F)],{ funcao_magica(R, F, Z) }, {I is Z}.
+anasem( I, R ) --> [pos(F)],{ nth1(F, R, Z) }, {I is Z}.
 anasem( D, R ) --> num(D).
 
 num( D ) --> [D], { digito(D) }.
