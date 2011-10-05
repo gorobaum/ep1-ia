@@ -2,7 +2,7 @@ analisador_sintatico( Lexicos, Sintaticos ) :-
     anasin( Sintaticos, Lexicos, []).
 
 anasin( I ) --> [=], expressao(I).
-anasin( I ) --> [int(I)].
+anasin( I ) --> fator(I).
 
 expressao( E ) --> parcela( E ).
 expressao( soma( E1, E2 ) ) --> parcela(E1), [+], expressao(E2).
